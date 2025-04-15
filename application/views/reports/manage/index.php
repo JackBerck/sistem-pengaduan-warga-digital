@@ -1,9 +1,18 @@
 <div class="container mt-5">
+    <?php if ($this->session->flashdata('success')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= $this->session->flashdata('success'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->session->flashdata('error')): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= $this->session->flashdata('error'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
 	<h1 class="mb-4">Kelola Pengaduan</h1>
-	<div class="mb-3">
-		<a href="<?= base_url('reports/create_manage'); ?>" class="btn btn-primary">Buat Pengaduan Baru</a>
-	</div>
-	<table class="table table-bordered table-striped">
+	<table class="table table-bordered table-striped mb-3">
 		<thead>
 			<tr>
 				<th>ID Aduan</th>
@@ -48,6 +57,10 @@
 			<?php endif; ?>
 		</tbody>
 	</table>
+	<div class="mb-3">
+		<a href="<?= base_url('reports/create'); ?>" class="btn btn-primary">Buat Pengaduan Baru</a>
+		<a href="<?= base_url('/'); ?>" class="btn btn-outline-primary">Kembali</a>
+	</div>
 </div>
 
 <script>

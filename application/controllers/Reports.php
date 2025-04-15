@@ -14,6 +14,7 @@ class Reports extends My_Controller
 		$data['title'] = 'Laporan';
 		$data['content'] = 'reports/index';
 		$data['current_user'] = $this->session->userdata('current_user');
+		$data['reports'] = $this->Report_models->get_report_by_user((int)$data['current_user']->id);
 		$data['reports'] = $this->Report_models->get_report_by_user($data['current_user']->id);
 
 		$this->load->view('layouts/main', $data);
@@ -36,7 +37,6 @@ class Reports extends My_Controller
 		$this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
 			$this->create();
 		} else {
 			$data = array(
@@ -46,6 +46,7 @@ class Reports extends My_Controller
 			);
 
 			if ($this->Report_models->create_report($data)) {
+				$this->session->set_flashdata('success', 'Laporan berhasil dibuat.');
 				redirect('/reports');
 			} else {
 				$this->session->set_flashdata('error', 'Gagal membuat laporan. Silakan coba lagi.');
@@ -76,7 +77,6 @@ class Reports extends My_Controller
 		$this->form_validation->set_rules('description', 'Deskripsi', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
 			redirect('/reports/edit/' . $id);
 		} else {
 			$data = array(
@@ -85,6 +85,7 @@ class Reports extends My_Controller
 			);
 
 			if ($this->Report_models->update_report($id, $data)) {
+				$this->session->set_flashdata('success', 'Laporan berhasil diperbarui.');
 				redirect('/reports');
 			} else {
 				$this->session->set_flashdata('error', 'Gagal memperbarui laporan. Silakan coba lagi.');
@@ -121,7 +122,6 @@ class Reports extends My_Controller
 		$this->form_validation->set_rules('status', 'Status', 'required|in_list[baru,diproses,selesai]');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
 			redirect('/reports/create_manage');
 		} else {
 			$data = array(
@@ -132,6 +132,7 @@ class Reports extends My_Controller
 			);
 
 			if ($this->Report_models->create_report($data)) {
+				$this->session->set_flashdata('success', 'Laporan berhasil dibuat.');
 				redirect('/reports/manage');
 			} else {
 				$this->session->set_flashdata('error', 'Gagal membuat laporan. Silakan coba lagi.');
@@ -163,7 +164,6 @@ class Reports extends My_Controller
 		$this->form_validation->set_rules('status', 'Status', 'required|in_list[baru,diproses,selesai]');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
 			redirect('/reports/edit_manage/' . $id);
 		} else {
 			$data = array(
@@ -173,6 +173,7 @@ class Reports extends My_Controller
 			);
 
 			if ($this->Report_models->update_report($id, $data)) {
+				$this->session->set_flashdata('success', 'Laporan berhasil diperbarui.');
 				redirect('/reports/manage');
 			} else {
 				$this->session->set_flashdata('error', 'Gagal memperbarui laporan. Silakan coba lagi.');

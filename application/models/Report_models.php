@@ -40,6 +40,6 @@ class Report_models extends CI_Model
 	{
 		$this->db->where('user_id', $user_id);
 		$query = $this->db->get('reports');
-		return $query->result_array();
+		return $query->result();
 	}
 }

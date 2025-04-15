@@ -36,8 +36,7 @@ class Auth extends My_Controller
 			$email = $this->input->post('email');
 
 			if ($this->Auth_models->is_email_exists($email)) {
-				echo "<script>alert('Email sudah digunakan. Silakan gunakan email lain.');</script>";
-				$this->register();
+				$this->session->set_flashdata('error', 'Email sudah terdaftar');
 				return;
 			}
 
@@ -48,8 +47,10 @@ class Auth extends My_Controller
 			);
 
 			if ($this->Auth_models->register($data)) {
+				$this->session->set_flashdata('success', 'Pendaftaran berhasil, silakan login');
 				redirect('auth/login');
 			} else {
+				$this->session->set_flashdata('error', 'Pendaftaran gagal, silakan coba lagi');
 				redirect('auth/register');
 			}
 		}
@@ -85,6 +86,7 @@ class Auth extends My_Controller
 				$this->session->set_userdata('current_user', $user);
 				redirect('/');
 			} else {
+				$this->session->set_flashdata('error', 'Email atau password salah');
 				redirect('auth/login');
 			}
 		}
