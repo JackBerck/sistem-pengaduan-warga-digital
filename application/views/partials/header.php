@@ -23,20 +23,20 @@
 				</li>
 				<?php if (isset($current_user) && $current_user): ?>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Pengaduan</a>
+						<a class="nav-link" href="/reports">Pengaduan</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Profil</a>
 					</li>
 					<li class="nav-item">
-						<a class="btn btn-danger" role="button" href="auth/logout">Logout</a>
+						<a class="btn btn-danger" role="button" href="/auth/logout">Logout</a>
 					</li>
 				<?php else: ?>
 					<li class="nav-item">
-						<a class="nav-link" href="auth/login">Masuk</a>
+						<a class="nav-link" href="/auth/login">Masuk</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="auth/register">Daftar</a>
+						<a class="nav-link" href="/auth/register">Daftar</a>
 					</li>
 				<?php endif; ?>
 			</ul>
