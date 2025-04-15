@@ -22,6 +22,14 @@
 					<a class="nav-link" href="/">Beranda</a>
 				</li>
 				<?php if (isset($current_user) && $current_user): ?>
+					<?php if (isset($current_user) && $current_user->role == "admin"): ?>
+						<li class="nav-item">
+							<a class="nav-link" href="/reports/manage">Kelola Pengaduan</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/users/manage">Kelola Pengguna</a>
+						</li>
+					<?php else: ?>
 					<li class="nav-item">
 						<a class="nav-link" href="/reports">Pengaduan</a>
 					</li>
@@ -31,6 +39,7 @@
 					<li class="nav-item">
 						<a class="btn btn-danger" role="button" href="/auth/logout">Logout</a>
 					</li>
+					<?php endif; ?>
 				<?php else: ?>
 					<li class="nav-item">
 						<a class="nav-link" href="/auth/login">Masuk</a>

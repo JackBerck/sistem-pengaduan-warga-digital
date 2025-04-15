@@ -35,7 +35,7 @@
 						<td><?= htmlspecialchars($item->updated_at); ?></td>
                         <td>
                             <a href="<?= base_url('reports/edit/' . $item->id); ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="<?= base_url('reports/delete/' . $item->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pengaduan ini?');">Hapus</a>
+                            <a href="<?= base_url('reports/delete/' . $item->id); ?>" class="btn btn-danger btn-sm delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengaduan ini?');">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -47,3 +47,14 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    const deleteButton = document.querySelector('.delete');
+    deleteButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const url = this.getAttribute('href');
+        if (confirm('Apakah Anda yakin ingin menghapus data ini? Sekalinya dihapus, data Anda tidak dapat dipulihkan!')) {
+            window.location = url;
+        }
+    });
+</script>
