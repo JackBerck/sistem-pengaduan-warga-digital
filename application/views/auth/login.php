@@ -24,12 +24,12 @@
 
 						<div data-mdb-input-init class="form-outline mb-4">
 							<label class="form-label" for="email">Alamat Email</label>
-							<input type="email" id="email" name="email" class="form-control form-control-lg" />
+							<input type="email" id="email" name="email" class="form-control form-control-lg" required/>
 						</div>
 
 						<div data-mdb-input-init class="form-outline mb-4">
 							<label class="form-label" for="password">Password</label>
-							<input type="password" id="password" name="password" class="form-control form-control-lg" />
+							<input type="password" id="password" name="password" class="form-control form-control-lg" required/>
 						</div>
 
 						<div class="pt-1 mb-4">

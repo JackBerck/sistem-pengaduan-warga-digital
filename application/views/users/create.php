@@ -28,7 +28,7 @@
 		</div>
 		<div class="mb-3">
 			<label for="role">Peran</label>
-			<select class="form-select" id="role" name="role" required>
+			<select class="form-select" id="role" name="role">
 				<option value="" disabled selected>Pilih peran pengguna</option>
 				<option value="admin">Admin</option>
 				<option value="warga">Warga</option>

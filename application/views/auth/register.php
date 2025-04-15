@@ -24,22 +24,22 @@
 
 						<div data-mdb-input-init class="form-outline mb-4">
 							<label class="form-label" for="email">Alamat Email</label>
-							<input type="email" name="email" id="email" class="form-control form-control-lg" />
+							<input type="email" name="email" id="email" class="form-control form-control-lg" required/>
 						</div>
 
 						<div data-mdb-input-init class="form-outline mb-4">
 							<label class="form-label" for="name">Nama</label>
-							<input type="text" id="name" name="name" class="form-control form-control-lg" />
+							<input type="text" id="name" name="name" class="form-control form-control-lg" required/>
 						</div>
 
 						<div data-mdb-input-init class="form-outline mb-4">
 							<label class="form-label" for="password">Password</label>
-							<input type="password" id="password" name="password" class="form-control form-control-lg" />
+							<input type="password" id="password" name="password" class="form-control form-control-lg" required minlength="8"/>
 						</div>
 
 						<div data-mdb-input-init class="form-outline mb-4">
 							<label class="form-label" for="verifyPassword">Verifikasi Password</label>
-							<input type="password" name="password" id="verifyPassword" class="form-control form-control-lg" />
+							<input type="password" name="password" id="verifyPassword" class="form-control form-control-lg" required />
 						</div>
 
 						<div class="pt-1 mb-4">

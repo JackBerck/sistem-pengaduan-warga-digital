@@ -54,7 +54,7 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="5" class="text-center">Tidak ada data pengaduan.</td>
+                    <td colspan="7" class="text-center">Tidak ada data pengaduan.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
